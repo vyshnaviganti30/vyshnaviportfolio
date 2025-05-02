@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vyshnavi Ganti | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <style>
+    :root {
+      --primary: #a64ac9;
+      --secondary: #ffb6c1;
+      --bg: #fff0f5;
+      --text-dark: #333;
+      --card-bg: #fff;
+      --gradient-light: linear-gradient(135deg, #f6d5f7, #fbe9f1);
+      --gradient-primary: linear-gradient(135deg, var(--primary), var(--secondary));
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #fff;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      list-style: none;
+      padding: 15px 10px;
+      margin: 0;
+      background: linear-gradient(to right, #fbe4f1, #fff0f5);
+    }
+
+    .navbar ul li {
+      margin: 8px 15px;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 20px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .navbar ul li a:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.1;
+      background-image: url('/api/placeholder/1000/400');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .profile-container {
+      position: relative;
+      z-index: 5;
+    }
+
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      object-fit: cover;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      margin-bottom: 15px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    .header-shapes {
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 60px;
+    }
+
+    section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: var(--gradient-primary);
+      border-radius: 2px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      opacity: 0.9;
+    }
+
+    .info-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .info-box {
+      background-color: var(--card-bg);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+      flex: 1 1 300px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .info-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60px;
+      height: 60px;
+      background: var(--gradient-light);
+      border-radius: 0 15px 0 60px;
+      opacity: 0.7;
+      z-index: 0;
+    }
+
+    .info-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 15px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 4px 8px rgba(166, 74, 201, 0.3);
+    }
+
+    .contact a:hover {
+      background: #9229b3;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #fbeffb;
+      color: #555;
+      margin-top: 40px;
+      font-size: 14px;
+      position: relative;
+    }
+
+    .footer-shapes {
+      position: absolute;
+      top: -2px;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      transform: rotate(180deg);
+    }
+
+    /* Skill icon styling */
+    .skill-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .skill-icon {
+      width: 48px;
+      height: 48px;
+      margin-right: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gradient-light);
+      border-radius: 50%;
+      color: var(--primary);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .skill-name {
+      font-weight: 500;
+    }
+
+    .skill-bar {
+      height: 6px;
+      background: #f0e6f5;
+      border-radius: 10px;
+      margin-top: 5px;
+      position: relative;
+      width: 100%;
+    }
+
+    .skill-progress {
+      height: 100%;
+      border-radius: 10px;
+      background: var(--gradient-primary);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .progress-c { width: 85%; }
+    .progress-cpp { width: 80%; }
+    .progress-java { width: 75%; }
+    .progress-html { width: 90%; }
+    .progress-css { width: 85%; }
+    .progress-js { width: 80%; }
+
+    /* Timeline styling */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background: linear-gradient(to bottom, var(--primary), var(--secondary));
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+      border-radius: 10px;
+    }
+
+    .timeline-container {
+      padding: 10px 40px;
+      position: relative;
+      background-color: inherit;
+      width: 50%;
+    }
+
+    .timeline-container::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      right: -12px;
+      background-color: white;
+      border: 4px solid var(--primary);
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+      box-shadow: 0 0 0 4px rgba(166, 74, 201, 0.3);
+    }
+
+    .left {
+      left: 0;
+    }
+
+    .right {
+      left: 50%;
+    }
+
+    .left::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      right: 30px;
+      border: medium solid var(--card-bg);
+      border-width: 10px 0 10px 10px;
+      border-color: transparent transparent transparent var(--card-bg);
+    }
+
+    .right::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      left: 30px;
+      border: medium solid var(--card-bg);
+      border-width: 10px 10px 10px 0;
+      border-color: transparent var(--card-bg) transparent transparent;
+    }
+
+    .right::after {
+      left: -12px;
+    }
+
+    .timeline-content {
+      padding: 20px;
+      background-color: var(--card-bg);
+      position: relative;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .timeline-icon {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 20px;
+      top: -20px;
+      left: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .timeline-year {
+      display: inline-block;
+      padding: 5px 15px;
+      background: var(--gradient-primary);
+      color: white;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      font-weight: 600;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .timeline-school {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .timeline-school i {
+      margin-right: 8px;
+      color: var(--primary);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 150px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .experience-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
+      background: #f6f6f6;
+      padding: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .achievement-box {
+      border-left: 4px solid var(--primary);
+      padding-left: 15px;
+      margin-bottom: 15px;
+    }
+
+    /* Animated elements */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fadeIn {
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .pulse-animation {
+      animation: pulse 2s infinite;
+    }
+
+    .skill-icon i, 
+    .contact i {
+      font-size: 1.5rem;
+    }
+
+    /* Floating shapes */
+    .shape {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    .shape-1 {
+      width: 80px;
+      height: 80px;
+      top: 10%;
+      left: 10%;
+      animation: float 8s infinite alternate;
+    }
+
+    .shape-2 {
+      width: 60px;
+      height: 60px;
+      top: 40%;
+      right: 10%;
+      animation: float 6s infinite alternate-reverse;
+    }
+
+    .shape-3 {
+      width: 40px;
+      height: 40px;
+      bottom: 20%;
+      left: 20%;
+      animation: float 10s infinite alternate;
+    }
+
+    @keyframes float {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      100% { transform: translate(30px, 30px) rotate(45deg); }
+    }
+
+    /* Responsive design */
+    @media screen and (max-width: 768px) {
+      .timeline::after {
+        left: 31px;
+      }
+      
+      .timeline-container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      
+      .timeline-container::before {
+        left: 60px;
+        border: medium solid var(--card-bg);
+        border-width: 10px 10px 10px 0;
+        border-color: transparent var(--card-bg) transparent transparent;
+      }
+
+      .left::after, .right::after {
+        left: 21px;
+      }
+      
+      .right {
+        left: 0;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .info-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-bg"></div>
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+    <div class="profile-container">
+      <img src="vyshh.jpg" alt="Vyshnavi Ganti" class="profile-pic">
+      <h1>Vyshnavi Ganti</h1>
+      <p>Computer Science Engineer | Web & Android Developer</p>
+      <p>Email: gantivyshnavi30@gmail.com | 📞 +91 7386654633</p>
+    </div>
+    <svg class="header-shapes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path fill="#fff0f5" fill-opacity="1" d="M0,32L48,48C96,64,192,96,288,96C384,96,480,64,576,48C672,32,768,32,864,42.7C960,53,1056,75,1152,74.7C1248,75,1344,53,1392,42.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+    </svg>
+  </header>
+
+  <!-- SECTIONS -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="section-intro">
+      <p>Passionate about creating elegant solutions through code</p>
+    </div>
+    <div class="info-box animate-fadeIn">
+      <p>
+        I am a B.Tech CSE student, passionate about applying my skills in software development, data analysis, and other technologies. Eager to solve complex problems and drive impactful solutions, I aim to foster continuous growth in the tech field.
+      </p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="section-intro">
+      <p>Technologies I've been working with recently</p>
+    </div>
+    <div class="info-grid">
+      <div class="info-box animate-fadeIn">
+        <strong>Programming:</strong>
+        <ul>
+          <li class="skill-item">
+            <div class="skill-icon"><i class="fas fa-code"></i></div>
+            <div style="width: 100%">
+              <span class="skill-name">C</span>
+              <div class="skill-bar">
+                <div class="skill-progress progress-c"></div>
+              </div>
+            </div>
+          </li>
+          <li class="skill-item">
+            <div class="skill-icon"><i class="fas fa-file-code"></i></div>
+            <div style="width: 100%">
+              <span class="skill-name">C++</span>
+              <div class="skill-bar">
+                <div class="skill-progress progress-cpp"></div>
+              </div>
+            </div>
+          </li>
+          <li class="skill-item">
+            <div class="skill-icon"><i class="fab fa-java"></i></div>
+            <div style="width: 100%">
+              <span class="skill-name">Java</span>
+              <div class="skill-bar">
+                <div class="skill-progress progress-java"></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="info-box animate-fadeIn" style="animation-delay: 0.2s;">
+        <strong>Web Development:</strong>
+        <ul>
+          <li class="skill-item">
+            <div class="skill-icon"><i class="fab fa-html5"></i></div>
+            <div style="width: 100%">
+              <span class="skill-name">HTML</span>
+              <div class="skill-bar">
+                <div class="skill-progress progress-html"></div>
+              </div>
+            </div>
+          </li>
+          <li class="skill-item">
+            <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
+            <div style="width: 100%">
+              <span class="skill-name">CSS</span>
+              <div class="skill-bar">
+                <div class="skill-progress progress-css"></div>
+              </div>
+            </div>
+          </li>
+          <li class="skill-item">
+            <div class="skill-icon"><i class="fab fa-js"></i></div>
+            <div style="width: 100%">
+              <span class="skill-name">JavaScript</span>
+              <div class="skill-bar">
+                <div class="skill-progress progress-js"></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="section-intro">
+      <p>My academic journey so far</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-container left animate-fadeIn">
+        <div class="timeline-content">
+          <div class="timeline-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="timeline-year">2022-2026</div>
+          <h3>B.Tech - Computer Science</h3>
+          <div class="timeline-school">
+            <i class="fas fa-university"></i>
+            <span>Gayatri Vidya Parishad</span>
+          </div>
+          <p>Avg CGPA: 8.2</p>
+        </div>
+      </div>
+      <div class="timeline-container right animate-fadeIn" style="animation-delay: 0.3s;">
+        <div class="timeline-content">
+          <div class="timeline-icon"><i class="fas fa-school"></i></div>
+          <div class="timeline-year">2020-2022</div>
+          <h3>Intermediate</h3>
+          <div class="timeline-school">
+            <i class="fas fa-building"></i>
+            <span>Sasi Educational Institutions</span>
+          </div>
+          <p>Score: 88%</p>
+        </div>
+      </div>
+      <div class="timeline-container left animate-fadeIn" style="animation-delay: 0.6s;">
+        <div class="timeline-content">
+          <div class="timeline-icon"><i class="fas fa-book"></i></div>
+          <div class="timeline-year">2019-2020</div>
+          <h3>Matriculation</h3>
+          <div class="timeline-school">
+            <i class="fas fa-landmark"></i>
+            <span>Narayana e-Techno High School</span>
+          </div>
+          <p>Score: 95%</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="section-intro">
+      <p>Some things I've built</p>
+    </div>
+    <div class="info-grid">
+      <div class="info-box animate-fadeIn">
+        <!-- Removed image for "Enroute to the Known" -->
+        <strong>Enroute to the Known</strong><br>
+        <p>A student resource platform built with HTML, CSS, JavaScript featuring real-time updates and customizable features.</p>
+        <div style="margin-top: 15px;">
+          <span style="background: #f6e7ff; color: var(--primary); padding: 3px 10px; border-radius: 15px; font-size: 0.8rem; margin-right: 5px;">HTML</span>
+          <span style="background: #f6e7ff; color: var(--primary); padding: 3px 10px; border-radius: 15px; font-size: 0.8rem; margin-right: 5px;">CSS</span>
+          <span style="background: #f6e7ff; color: var(--primary); padding: 3px 10px; border-radius: 15px; font-size: 0.8rem;">JavaScript</span>
+        </div>
+      </div>
+      <div class="info-box animate-fadeIn" style="animation-delay: 0.2s;">
+        <!-- Removed image for "Kalakriti" -->
+        <strong>Kalakriti</strong><br>
+        <p>A web platform built with React, Node.js, Express, and MongoDB where users across India can buy and sell handmade products.</p>
+        <div style="margin-top: 15px;">
+          <span style="background: #f6e7ff; color: var(--primary); padding: 3px 10px; border-radius: 15px; font-size: 0.8rem; margin-right: 5px;">React</span>
+          <span style="background: #f6e7ff; color: var(--primary); padding: 3px 10px; border-radius: 15px; font-size: 0.8rem; margin-right: 5px;">Node.js</span>
+          <span style="background: #f6e7ff; color: var(--primary); padding: 3px 10px; border-radius: 15px; font-size: 0.8rem;">Express.js</span>
+          <span style="background: #f6e7ff; color: var(--primary); padding: 3px 10px; border-radius: 15px; font-size: 0.8rem;">MongoDB</span>
+        </div>
+      </div>
+      <div class="info-box animate-fadeIn" style="animation-delay: 0.2s;">
+        <strong>Clothes Donation Platform</strong><br>
+        <p>A web platform that connects clothing donors with NGOs to simplify the donation process. Features include role-based dashboards, donation tracking, and NGO pickup coordination.</p>
+        <div style="margin-top: 15px;">
+          <span style="background: #f6e7ff; color: var(--primary); padding: 3px 10px; border-radius: 15px; font-size: 0.8rem; margin-right: 5px;">React</span>
+          <span style="background: #f6e7ff; color: var(--primary); padding: 3px 10px; border-radius: 15px; font-size: 0.8rem; margin-right: 5px;">Node.js</span>
+          <span style="background: #f6e7ff; color: var(--primary); padding: 3px 10px; border-radius: 15px; font-size: 0.8rem;">Express.js</span>
+          <span style="background: #f6e7ff; color: var(--primary); padding: 3px 10px; border-radius: 15px; font-size: 0.8rem;">MongoDB</span>
+          <span style="background: #f6e7ff; color: var(--primary); padding: 3px 10px; border-radius: 15px; font-size: 0.8rem;">Bootstrap CSS</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience & Workshops</h2>
+    <div class="section-intro">
+      <p>Places I've worked and skills I've gained</p>
+    </div>
+    <div class="info-grid">
+      <div class="info-box animate-fadeIn">
+        <!-- Removed image for "Android Developer Intern" -->
+        <strong>Android Developer Intern</strong><br>
+        <p>AICTE-Google Program (2024)</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;">Worked on building Android applications using Kotlin and Java, implementing Material Design principles.</p>
+      </div>
+      <div class="info-box animate-fadeIn" style="animation-delay: 0.2s;">
+        <!-- Removed image for "Google AI/ML Workshop" -->
+        <strong>Google AI/ML Workshop</strong><br>
+        <p>Gained insights into real-world AI and machine learning applications.</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;">Learned about data processing, solving regression problems, classification techniques, and model deployment for practical use cases.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <h2>Achievements</h2>
+    <div class="section-intro">
+      <p>Recognition of my work</p>
+    </div>
+    <div class="info-box animate-fadeIn">
+      <div class="achievement-box">
+        <div class="skill-item">
+          <div class="skill-icon pulse-animation"><i class="fas fa-trophy"></i></div>
+          <div>
+            <strong>Smart India Hackathon</strong>
+            <p>Selected in SMART INDIA HACKATHON during college internal screening</p>
+          </div>
+        </div>
+      </div>
+      <div class="achievement-box">
+        <div class="skill-item">
+          <div class="skill-icon pulse-animation"><i class="fas fa-medal"></i></div>
+          <div>
+            <strong>AU HACKAP</strong>
+            <p>4th place in AU HACKAP Hackathon among 50 teams</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Connect with Me</h2>
+    <div class="section-intro">
+      <p>Feel free to reach out</p>
+    </div>
+    <a href="https://linkedin.com/in/vyshnaviganti" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    <a href="https://github.com/vyshnaviganti30" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+    <a href="https://codeforces.com/profile/vyshnaviganti" target="_blank"><i class="fas fa-code"></i> Codeforces</a>
+    <a href="https://leetcode.com/vyshnavi__ganti" target="_blank"><i class="fas fa-laptop-code"></i> LeetCode</a>
+    <a href="https://www.geeksforgeeks.org/user/gantivys8orp" target="_blank"><i class="fas fa-keyboard"></i> GFG</a>
+    <a href="https://www.codechef.com/users/vyshnaviganti" target="_blank"><i class="fas fa-code-branch"></i> CodeChef</a>
+  </section>
+
+  <footer>
+    <svg class="footer-shapes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path fill="#fff0f5" fill-opacity="1" d="M0,32L48,48C96,64,192,96,288,96C384,96,480,64,576,48C672,32,768,32,864,42.7C960,53,1056,75,1152,74.7C1248,75,1344,53,1392,42.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+    </svg>
+    <!-- Vyshnavi Ganti. Built with 💖 and passion. -->
+    Vyshnavi Ganti. Built with 💗 and passion.
+
+  </footer>
+
+</body>
+</html>
