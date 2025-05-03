@@ -537,7 +537,6 @@
   </style>
 </head>
 <body>
-
   <!-- NAVIGATION BAR -->
   <nav class="navbar">
     <ul>
@@ -580,14 +579,15 @@
       </p>
     </div>
   </section>
-
-  <section id="skills">
+  
+   <section id="skills">
     <h2>Skills</h2>
     <div class="section-intro">
       <p>Technologies I've been working with recently</p>
     </div>
-    <div class="info-grid">
-      <div class="info-box animate-fadeIn">
+    <div class="info-grid" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+      <!-- Programming Section -->
+      <div class="info-box animate-fadeIn" style="flex: 1 1 300px;">
         <strong>Programming:</strong>
         <ul>
           <li class="skill-item">
@@ -619,7 +619,36 @@
           </li>
         </ul>
       </div>
-      <div class="info-box animate-fadeIn" style="animation-delay: 0.2s;">
+  
+      <!-- Version Control Section -->
+      <div class="info-box animate-fadeIn" style="flex: 1 1 300px; animation-delay: 0.2s;">
+        <strong>Version Control:</strong>
+        <ul>
+          <li class="skill-item">
+            <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+            <div style="width: 100%">
+              <span class="skill-name">Git</span>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%;"></div>
+              </div>
+            </div>
+          </li>
+          <li class="skill-item">
+            <div class="skill-icon"><i class="fab fa-github"></i></div>
+            <div style="width: 100%">
+              <span class="skill-name">GitHub</span>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%;"></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- Web Development Section -->
+    <div class="info-grid" style="margin-top: 20px;">
+      <div class="info-box animate-fadeIn" style="animation-delay: 0.4s;">
         <strong>Web Development:</strong>
         <ul>
           <li class="skill-item">
@@ -649,11 +678,46 @@
               </div>
             </div>
           </li>
+          <li class="skill-item">
+            <div class="skill-icon"><i class="fab fa-node-js"></i></div>
+            <div style="width: 100%">
+              <span class="skill-name">Node.js</span>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 80%;"></div>
+              </div>
+            </div>
+          </li>
+          <li class="skill-item">
+            <div class="skill-icon"><i class="fas fa-server"></i></div>
+            <div style="width: 100%">
+              <span class="skill-name">Express.js</span>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 75%;"></div>
+              </div>
+            </div>
+          </li>
+          <li class="skill-item">
+            <div class="skill-icon"><i class="fas fa-database"></i></div>
+            <div style="width: 100%">
+              <span class="skill-name">MongoDB</span>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 70%;"></div>
+              </div>
+            </div>
+          </li>
+          <li class="skill-item">
+            <div class="skill-icon"><i class="fab fa-bootstrap"></i></div>
+            <div style="width: 100%">
+              <span class="skill-name">Bootstrap CSS</span>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%;"></div>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
   </section>
-  
 
   <section id="education">
     <h2>Education</h2>
